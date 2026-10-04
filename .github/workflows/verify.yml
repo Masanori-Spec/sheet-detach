@@ -1,0 +1,77 @@
+name: Verify SheetDetach
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  unit-and-independent-xlsx:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: python -m pip install --requirement requirements.txt
+      - run: npm run check
+      - run: npm run fixture
+      - run: npm run test:oracle
+      - run: python tools/libreoffice.py --validate
+      - run: node scripts/benchmark.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sheetdetach-unit-node-${{ matrix.node }}
+          path: |
+            test-results/
+            generated/
+  sandbox-browser-and-libreoffice:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: python -m pip install --requirement requirements.txt
+      - run: npx --no-install playwright install --with-deps chromium
+      - name: Install distribution-provided LibreOffice Calc
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y libreoffice-calc fonts-noto-cjk
+      - run: npm run build
+      - run: npm run fixture
+      - name: Sandboxed Chromium and actual downloads
+        run: npm run test:browser
+      - name: Independent checks against actual browser-downloaded handoff
+        run: python tools/oracle.py --input test-results/browser/actual-artifacts/handoff.xlsx --out test-results/browser/actual-download-oracle.json
+      - name: LibreOffice recalculation, input changes and native save/reopen
+        run: npm run test:native
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sheetdetach-browser-and-libreoffice-evidence
+          path: |
+            test-results/
+            generated/
+          if-no-files-found: error
