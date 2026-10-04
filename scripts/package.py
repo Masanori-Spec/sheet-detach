@@ -4,7 +4,7 @@ root=Path(__file__).resolve().parents[1]
 out=root.parent/'sheet-detach-output';out.mkdir(exist_ok=True)
 exclude={'node_modules','test-results','.git','__pycache__'}
 files=sorted(p for p in root.rglob('*') if p.is_file() and not any(part in exclude for part in p.relative_to(root).parts))
-manifest={'name':'SheetDetach','version':'0.1.0','status':'Local tests passed; browser and LibreOffice execution pending hosted CI; Microsoft Excel unverified','files':[]}
+manifest={'name':'SheetDetach','version':'0.1.0','status':'See docs/VERIFICATION.md for exact hosted test evidence and scope; Microsoft Excel unverified','files':[]}
 archive=out/'sheet-detach-source.zip'
 with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
  for p in files:

@@ -1,0 +1,99 @@
+{
+  "suite": "sheet-detach-real-browser",
+  "sandbox": true,
+  "mount": "/sheet-detach/",
+  "checks": [
+    "Japanese initial state, disabled export, keyboard skip link",
+    "Sample import is staged until an explicit check",
+    "Actual ja print PDF: formulas, ledger, scope limits and rendered pages verified",
+    "Actual UI downloads: XLSX, CSV, JSON, TXT saved and reopened; cached values ignored",
+    "Actual en print PDF: formulas, ledger, scope limits and rendered pages verified",
+    "English toggle preserves current reviewed results",
+    "Sheet changes synchronously clear stale preview/export; empty selection blocks; keyboard selection works",
+    "Reset removes workbook, results, selections, downloads and restores useful keyboard focus",
+    "Exported workbook reimports correctly, including repeated import of the same file",
+    "Returning dependency blocks with exact path; keeping its sheet resolves the guard",
+    "Unsupported function cannot produce preview or downloadable artifacts",
+    "Malformed replacement file removes old workbook and outputs",
+    "Oversized file rejected before File.arrayBuffer allocation",
+    "Imported filename is rendered as text, not executable HTML",
+    "390px Japanese and English layout, blocked layout, named controls and live status"
+  ],
+  "downloads": [
+    "handoff.xlsx",
+    "ledger.csv",
+    "recipe.json",
+    "report.txt"
+  ],
+  "screenshots": [
+    "desktop-ja.png",
+    "desktop-en.png",
+    "blocked-ja.png",
+    "mobile-ja.png",
+    "mobile-en.png",
+    "mobile-blocked-en.png"
+  ],
+  "startedAt": "2026-10-04T16:04:37.895Z",
+  "prints": [
+    {
+      "language": "ja",
+      "pdf": "print/handoff-review-ja.pdf",
+      "bytes": 130615,
+      "pages": 2,
+      "requiredText": [
+        "Plan!C2",
+        "Plan!C3",
+        "Plan!C4",
+        "=B2*(6)+(-2)",
+        "=B3*(5)",
+        "=SUM(C2:C3)",
+        "Derived!B2",
+        "Constants!B2",
+        "10,000",
+        "2,000",
+        "MicrosoftExcel",
+        "外した参照の記録",
+        "20シート"
+      ],
+      "renderedPages": [
+        "print/handoff-review-ja-1.png",
+        "print/handoff-review-ja-2.png"
+      ],
+      "consumer": "Chromium print PDF; independent Poppler text extraction and page rendering"
+    },
+    {
+      "language": "en",
+      "pdf": "print/handoff-review-en.pdf",
+      "bytes": 105681,
+      "pages": 2,
+      "requiredText": [
+        "Plan!C2",
+        "Plan!C3",
+        "Plan!C4",
+        "=B2*(6)+(-2)",
+        "=B3*(5)",
+        "=SUM(C2:C3)",
+        "Derived!B2",
+        "Constants!B2",
+        "10,000",
+        "2,000",
+        "MicrosoftExcel",
+        "Removed-referenceledger",
+        "20sheets"
+      ],
+      "renderedPages": [
+        "print/handoff-review-en-1.png",
+        "print/handoff-review-en-2.png"
+      ],
+      "consumer": "Chromium print PDF; independent Poppler text extraction and page rendering"
+    }
+  ],
+  "status": "passed",
+  "consoleErrors": [],
+  "network": {
+    "requests": 1,
+    "external": 0,
+    "onlyGet": true
+  },
+  "finishedAt": "2026-10-04T16:04:45.429Z"
+}

@@ -24,8 +24,8 @@ save the four files individually:
 
 The sample starts with results **46, 10, 56**. In the exported workbook, changing
 `Plan!B2` from 8 to 10 and `Plan!B3` from 2 to 3 should recalculate to
-**58, 15, 73** in a supported spreadsheet consumer. A successful native CI run,
-not the preview alone, is required before claiming that consumer behavior.
+**58, 15, 73** in a supported spreadsheet consumer. The linked hosted run verified both states in LibreOffice 7.3.7.2 after
+native recalculation, save and reopen; Microsoft Excel remains unverified.
 
 The ledger and recipe deliberately include values and lineage from omitted
 sheets. Review them before sharing. The workbook preserves shared styles and
@@ -92,11 +92,36 @@ GitHub-hosted Linux runner and uses the actual browser-downloaded XLSX, with
 fresh LibreOffice profiles for recalculation and 12 input states. It has no
 local launch or generated-fixture fallback. Do not add `--no-sandbox`.
 
-Local evidence at this source snapshot: 132 Node tests, independent ZIP/openpyxl
-formula oracle with 12 closed-form states and 8 damaged-export rejections.
-Browser screenshots and native LibreOffice execution are **pending hosted CI**.
+[Verified hosted run](https://github.com/Masanori-Spec/sheet-detach/actions/runs/37215341186) passed all three jobs at commit
+`af79b6f78f6f0d5000afb452348e7f4d23f16218`:
+132 tests on Node 22 and 24; independent ZIP/openpyxl checks over 12 states and
+8 damaged-export rejections; 15 sandboxed browser checks; actual-download
+validation; and **26 LibreOffice 7.3.7.2 conversions** across initial and 12
+input-change states with fresh-profile save/reopen. All six JA/EN desktop/mobile
+and guard screenshots, plus both two-page A4 print PDFs, were visually inspected.
+
 See [consumer validation](docs/consumer-validation.md) and
-[verification status](docs/VERIFICATION.md) for what each layer establishes.
+[verification evidence](docs/VERIFICATION.md) for exact scope and limitations.
+The native harness uses LibreOffice's display-independent SVP backend. No browser
+sandbox bypass is used. Workflow execution remains subject to the repository
+owner's existing GitHub limits.
+
+### Actual screenshots
+
+Synthetic planning fixture from the linked passing run:
+
+![Japanese desktop handoff review](docs/evidence/hosted/desktop-ja.png)
+
+<details><summary>Japanese mobile layout at 390px</summary>
+
+![Japanese mobile handoff review](docs/evidence/hosted/mobile-ja.png)
+
+</details>
+
+[Japanese print PDF](docs/evidence/hosted/handoff-review-ja.pdf) ·
+[English print PDF](docs/evidence/hosted/handoff-review-en.pdf)
+
+![Japanese printed formula and dependency review](docs/evidence/hosted/handoff-review-ja-1.png)
 
 ## Research and boundaries
 

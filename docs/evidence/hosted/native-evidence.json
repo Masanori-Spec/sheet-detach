@@ -1,0 +1,1449 @@
+{
+  "status": "passed",
+  "started_at": "2026-10-04T16:04:46.084405+00:00",
+  "consumer": "LibreOffice Calc",
+  "native_application_recalculation": true,
+  "runs": [
+    {
+      "label": "initial save",
+      "source_sha256": "5468fb273a0ba0fed74909e82f118bd98934a9619d22bba68d01fe4df97f19d2",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\nUnable to revert mtime: /usr/share/fonts\nUnable to revert mtime: /usr/share/fonts/truetype\nUnable to revert mtime: /usr/share/fonts/truetype/dejavu\nUnable to revert mtime: /usr/share/fonts/truetype/lato\nUnable to revert mtime: /usr/share/fonts/truetype/liberation\nUnable to revert mtime: /usr/share/fonts/truetype/noto\n",
+      "output_sha256": "2558083d0ea48d331f291728d6b999dd257a7627751d78bdb47a4dc1969b691c",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/saved/handoff.xlsx",
+      "duration_seconds": 1.664
+    },
+    {
+      "label": "initial reopen/save",
+      "source_sha256": "2558083d0ea48d331f291728d6b999dd257a7627751d78bdb47a4dc1969b691c",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "695344c819ca2c40d132e0a9cabce159c6773eb9d9c6bff3ce6f1c3c3979616a",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/reopened/handoff.xlsx",
+      "duration_seconds": 1.248
+    },
+    {
+      "label": "x0-y0 save",
+      "source_sha256": "1a7d1fc7b3e114b3f2d2aedb02fff4a1685598bce84b275541e9beed4653db19",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "52450542b592e3277e8e80f926bf71218fccb7ba74eca7379a5156c65ae6cef1",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/saved/handoff.xlsx",
+      "duration_seconds": 1.25
+    },
+    {
+      "label": "x0-y0 reopen/save",
+      "source_sha256": "52450542b592e3277e8e80f926bf71218fccb7ba74eca7379a5156c65ae6cef1",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "52450542b592e3277e8e80f926bf71218fccb7ba74eca7379a5156c65ae6cef1",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/reopened/handoff.xlsx",
+      "duration_seconds": 1.244
+    },
+    {
+      "label": "x0-y2 save",
+      "source_sha256": "8d977bb159b4cf7ecb09d111c028156348394e74c62fb27f974b3fead0e93403",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "e8c11034994e9fdf53971164c91f900ac2130eefbaed7a33cdcf905fafd1f695",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/saved/handoff.xlsx",
+      "duration_seconds": 1.255
+    },
+    {
+      "label": "x0-y2 reopen/save",
+      "source_sha256": "e8c11034994e9fdf53971164c91f900ac2130eefbaed7a33cdcf905fafd1f695",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "529331ea902fb519be0f4b0be173cbc1a15292010c8688a5b89ad8107f3b9d96",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/reopened/handoff.xlsx",
+      "duration_seconds": 1.248
+    },
+    {
+      "label": "x0-y3 save",
+      "source_sha256": "cb3bce9fe1db9e0069d4f11c968ce72f54a17594102bb8638f70c9e2b7b0e246",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "03761bc7cfda6fb295ef73889ca889ca8ee1cd02e2eeba0e1d55990e6321dc7e",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/saved/handoff.xlsx",
+      "duration_seconds": 1.256
+    },
+    {
+      "label": "x0-y3 reopen/save",
+      "source_sha256": "03761bc7cfda6fb295ef73889ca889ca8ee1cd02e2eeba0e1d55990e6321dc7e",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "ed6b3c29b15bee030a9a53fe2842506a06440425058ab6057beccd05d30c6c33",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/reopened/handoff.xlsx",
+      "duration_seconds": 1.247
+    },
+    {
+      "label": "x1-y0 save",
+      "source_sha256": "d67ada3776be784c48fd07037639852d77fe778254df5788f3dfd68dd474aa9f",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "c98352008000f3872d2de04c869272b02d60c4ed933621dc00c63f3403ea7584",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/saved/handoff.xlsx",
+      "duration_seconds": 1.283
+    },
+    {
+      "label": "x1-y0 reopen/save",
+      "source_sha256": "c98352008000f3872d2de04c869272b02d60c4ed933621dc00c63f3403ea7584",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "c98352008000f3872d2de04c869272b02d60c4ed933621dc00c63f3403ea7584",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/reopened/handoff.xlsx",
+      "duration_seconds": 1.25
+    },
+    {
+      "label": "x1-y2 save",
+      "source_sha256": "11208493a529291f473017a2999ca52db8867c0b08bf93e0b65571e965d23663",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "cdc344b1150745428e5888d97127f2ccd147dcdcc8c0aeff978912b798f6e9fe",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/saved/handoff.xlsx",
+      "duration_seconds": 1.251
+    },
+    {
+      "label": "x1-y2 reopen/save",
+      "source_sha256": "cdc344b1150745428e5888d97127f2ccd147dcdcc8c0aeff978912b798f6e9fe",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "cdc344b1150745428e5888d97127f2ccd147dcdcc8c0aeff978912b798f6e9fe",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/reopened/handoff.xlsx",
+      "duration_seconds": 1.248
+    },
+    {
+      "label": "x1-y3 save",
+      "source_sha256": "7e15fb3a13050b566769546143e89383483461fc4ac2fd5b5a3d447995b538a6",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "341bc56d802e40beebecceec696e766045da530a7b3f778a9b78b15437d70dd5",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/saved/handoff.xlsx",
+      "duration_seconds": 1.245
+    },
+    {
+      "label": "x1-y3 reopen/save",
+      "source_sha256": "341bc56d802e40beebecceec696e766045da530a7b3f778a9b78b15437d70dd5",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "7988bbb76d990b754a452e7ebe71c6ca9b5ca93f7dd298ef9894a8cf7487848c",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/reopened/handoff.xlsx",
+      "duration_seconds": 1.254
+    },
+    {
+      "label": "x8-y0 save",
+      "source_sha256": "e79e2304f3ea378155a6ab086ad4786000b310c913b91d18b1819eadf197420a",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "3a28c080de993049a295de1edddcb7fdd103b66bb339f3a2988b0fc4ea745011",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/saved/handoff.xlsx",
+      "duration_seconds": 1.266
+    },
+    {
+      "label": "x8-y0 reopen/save",
+      "source_sha256": "3a28c080de993049a295de1edddcb7fdd103b66bb339f3a2988b0fc4ea745011",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "59a7b7cd2f65b62fe9e13d72eacabfa5e4cb03c8d1d55123133c762c5bb218c6",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/reopened/handoff.xlsx",
+      "duration_seconds": 1.278
+    },
+    {
+      "label": "x8-y2 save",
+      "source_sha256": "58ed14733654ed687d684060444f1d758600246b227ee8934a38b232e165da0d",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "32c8c877c47e924016056ca8554c34df4f1972c50d5f7803526f0070885a4d85",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/saved/handoff.xlsx",
+      "duration_seconds": 1.248
+    },
+    {
+      "label": "x8-y2 reopen/save",
+      "source_sha256": "32c8c877c47e924016056ca8554c34df4f1972c50d5f7803526f0070885a4d85",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "32c8c877c47e924016056ca8554c34df4f1972c50d5f7803526f0070885a4d85",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/reopened/handoff.xlsx",
+      "duration_seconds": 1.269
+    },
+    {
+      "label": "x8-y3 save",
+      "source_sha256": "78c2014d49588006de2c3c4bb73e3264a0ff7dd49714437eaef6db40a0c63fd2",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "e3560931eb21b4368e270bb14711d9253d1aaa06e0f9ee40b7cece9dfb8f160f",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/saved/handoff.xlsx",
+      "duration_seconds": 1.251
+    },
+    {
+      "label": "x8-y3 reopen/save",
+      "source_sha256": "e3560931eb21b4368e270bb14711d9253d1aaa06e0f9ee40b7cece9dfb8f160f",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "45f9d9862370f7ce235233e9bf244547dd8b307b4429829b859bfb5ed8a47a05",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/reopened/handoff.xlsx",
+      "duration_seconds": 1.232
+    },
+    {
+      "label": "x10-y0 save",
+      "source_sha256": "e264ce586939ad9ef234119ab2217341b23da48fa9e281c450303d7707b3380a",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "ee1cef2d4999d465bf847e835c85c0ddbdccff34d08125dec5c2dae3c34d74bc",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/saved/handoff.xlsx",
+      "duration_seconds": 1.259
+    },
+    {
+      "label": "x10-y0 reopen/save",
+      "source_sha256": "ee1cef2d4999d465bf847e835c85c0ddbdccff34d08125dec5c2dae3c34d74bc",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "44973409bd4206edbc962a0d174ae3907893d6a0093754cc81cfcac01956f3fa",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/reopened/handoff.xlsx",
+      "duration_seconds": 1.257
+    },
+    {
+      "label": "x10-y2 save",
+      "source_sha256": "601769a1c2631ff237ed6c67122a3911d6492e2b0d5bb6fd93be68a3e2840044",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "bd000fe645dd3012ff53b1943c5ea1ad3771811bdcb56fa0662f391aa6846924",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/saved/handoff.xlsx",
+      "duration_seconds": 1.268
+    },
+    {
+      "label": "x10-y2 reopen/save",
+      "source_sha256": "bd000fe645dd3012ff53b1943c5ea1ad3771811bdcb56fa0662f391aa6846924",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "bd000fe645dd3012ff53b1943c5ea1ad3771811bdcb56fa0662f391aa6846924",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/reopened/handoff.xlsx",
+      "duration_seconds": 1.261
+    },
+    {
+      "label": "x10-y3 save",
+      "source_sha256": "cdecf77c26295661362aeadd656fe55464d7bfebad3cdf5878e0cc6c9856679e",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/input/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/saved/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "a3eae333ae744eae89594fa0eb214d2714fa1bd9c3a769b2de3125affaa292b0",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/saved/handoff.xlsx",
+      "duration_seconds": 1.261
+    },
+    {
+      "label": "x10-y3 reopen/save",
+      "source_sha256": "a3eae333ae744eae89594fa0eb214d2714fa1bd9c3a769b2de3125affaa292b0",
+      "fresh_profile": true,
+      "recalculate_on_load": "always",
+      "status": "saved",
+      "vcl_backend": "svp",
+      "returncode": 0,
+      "stdout": "convert /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/saved/handoff.xlsx -> /home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/reopened/handoff.xlsx using filter : Calc MS Excel 2007 XML\n",
+      "stderr": "Warning: failed to launch javaldx - java may not function correctly\n",
+      "output_sha256": "a3eae333ae744eae89594fa0eb214d2714fa1bd9c3a769b2de3125affaa292b0",
+      "output": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/reopened/handoff.xlsx",
+      "duration_seconds": 1.258
+    }
+  ],
+  "closed_form_states": [
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 0
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 0,
+        "C4": -2
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/input/handoff.xlsx",
+        "sha256": "1a7d1fc7b3e114b3f2d2aedb02fff4a1685598bce84b275541e9beed4653db19",
+        "inputs": {
+          "B2": 0,
+          "B3": 0
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/saved/handoff.xlsx",
+        "sha256": "52450542b592e3277e8e80f926bf71218fccb7ba74eca7379a5156c65ae6cef1",
+        "values": {
+          "C2": -2,
+          "C3": 0,
+          "C4": -2
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y0/reopened/handoff.xlsx",
+        "sha256": "52450542b592e3277e8e80f926bf71218fccb7ba74eca7379a5156c65ae6cef1",
+        "values": {
+          "C2": -2,
+          "C3": 0,
+          "C4": -2
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 2
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 10,
+        "C4": 8
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/input/handoff.xlsx",
+        "sha256": "8d977bb159b4cf7ecb09d111c028156348394e74c62fb27f974b3fead0e93403",
+        "inputs": {
+          "B2": 0,
+          "B3": 2
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/saved/handoff.xlsx",
+        "sha256": "e8c11034994e9fdf53971164c91f900ac2130eefbaed7a33cdcf905fafd1f695",
+        "values": {
+          "C2": -2,
+          "C3": 10,
+          "C4": 8
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y2/reopened/handoff.xlsx",
+        "sha256": "529331ea902fb519be0f4b0be173cbc1a15292010c8688a5b89ad8107f3b9d96",
+        "values": {
+          "C2": -2,
+          "C3": 10,
+          "C4": 8
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 3
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 15,
+        "C4": 13
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/input/handoff.xlsx",
+        "sha256": "cb3bce9fe1db9e0069d4f11c968ce72f54a17594102bb8638f70c9e2b7b0e246",
+        "inputs": {
+          "B2": 0,
+          "B3": 3
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/saved/handoff.xlsx",
+        "sha256": "03761bc7cfda6fb295ef73889ca889ca8ee1cd02e2eeba0e1d55990e6321dc7e",
+        "values": {
+          "C2": -2,
+          "C3": 15,
+          "C4": 13
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x0-y3/reopened/handoff.xlsx",
+        "sha256": "ed6b3c29b15bee030a9a53fe2842506a06440425058ab6057beccd05d30c6c33",
+        "values": {
+          "C2": -2,
+          "C3": 15,
+          "C4": 13
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 0,
+        "C4": 4
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/input/handoff.xlsx",
+        "sha256": "d67ada3776be784c48fd07037639852d77fe778254df5788f3dfd68dd474aa9f",
+        "inputs": {
+          "B2": 1,
+          "B3": 0
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/saved/handoff.xlsx",
+        "sha256": "c98352008000f3872d2de04c869272b02d60c4ed933621dc00c63f3403ea7584",
+        "values": {
+          "C2": 4,
+          "C3": 0,
+          "C4": 4
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y0/reopened/handoff.xlsx",
+        "sha256": "c98352008000f3872d2de04c869272b02d60c4ed933621dc00c63f3403ea7584",
+        "values": {
+          "C2": 4,
+          "C3": 0,
+          "C4": 4
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 10,
+        "C4": 14
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/input/handoff.xlsx",
+        "sha256": "11208493a529291f473017a2999ca52db8867c0b08bf93e0b65571e965d23663",
+        "inputs": {
+          "B2": 1,
+          "B3": 2
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/saved/handoff.xlsx",
+        "sha256": "cdc344b1150745428e5888d97127f2ccd147dcdcc8c0aeff978912b798f6e9fe",
+        "values": {
+          "C2": 4,
+          "C3": 10,
+          "C4": 14
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y2/reopened/handoff.xlsx",
+        "sha256": "cdc344b1150745428e5888d97127f2ccd147dcdcc8c0aeff978912b798f6e9fe",
+        "values": {
+          "C2": 4,
+          "C3": 10,
+          "C4": 14
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 15,
+        "C4": 19
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/input/handoff.xlsx",
+        "sha256": "7e15fb3a13050b566769546143e89383483461fc4ac2fd5b5a3d447995b538a6",
+        "inputs": {
+          "B2": 1,
+          "B3": 3
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/saved/handoff.xlsx",
+        "sha256": "341bc56d802e40beebecceec696e766045da530a7b3f778a9b78b15437d70dd5",
+        "values": {
+          "C2": 4,
+          "C3": 15,
+          "C4": 19
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x1-y3/reopened/handoff.xlsx",
+        "sha256": "7988bbb76d990b754a452e7ebe71c6ca9b5ca93f7dd298ef9894a8cf7487848c",
+        "values": {
+          "C2": 4,
+          "C3": 15,
+          "C4": 19
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 0,
+        "C4": 46
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/input/handoff.xlsx",
+        "sha256": "e79e2304f3ea378155a6ab086ad4786000b310c913b91d18b1819eadf197420a",
+        "inputs": {
+          "B2": 8,
+          "B3": 0
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/saved/handoff.xlsx",
+        "sha256": "3a28c080de993049a295de1edddcb7fdd103b66bb339f3a2988b0fc4ea745011",
+        "values": {
+          "C2": 46,
+          "C3": 0,
+          "C4": 46
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y0/reopened/handoff.xlsx",
+        "sha256": "59a7b7cd2f65b62fe9e13d72eacabfa5e4cb03c8d1d55123133c762c5bb218c6",
+        "values": {
+          "C2": 46,
+          "C3": 0,
+          "C4": 46
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 10,
+        "C4": 56
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/input/handoff.xlsx",
+        "sha256": "58ed14733654ed687d684060444f1d758600246b227ee8934a38b232e165da0d",
+        "inputs": {
+          "B2": 8,
+          "B3": 2
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/saved/handoff.xlsx",
+        "sha256": "32c8c877c47e924016056ca8554c34df4f1972c50d5f7803526f0070885a4d85",
+        "values": {
+          "C2": 46,
+          "C3": 10,
+          "C4": 56
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y2/reopened/handoff.xlsx",
+        "sha256": "32c8c877c47e924016056ca8554c34df4f1972c50d5f7803526f0070885a4d85",
+        "values": {
+          "C2": 46,
+          "C3": 10,
+          "C4": 56
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 15,
+        "C4": 61
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/input/handoff.xlsx",
+        "sha256": "78c2014d49588006de2c3c4bb73e3264a0ff7dd49714437eaef6db40a0c63fd2",
+        "inputs": {
+          "B2": 8,
+          "B3": 3
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/saved/handoff.xlsx",
+        "sha256": "e3560931eb21b4368e270bb14711d9253d1aaa06e0f9ee40b7cece9dfb8f160f",
+        "values": {
+          "C2": 46,
+          "C3": 15,
+          "C4": 61
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x8-y3/reopened/handoff.xlsx",
+        "sha256": "45f9d9862370f7ce235233e9bf244547dd8b307b4429829b859bfb5ed8a47a05",
+        "values": {
+          "C2": 46,
+          "C3": 15,
+          "C4": 61
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 0,
+        "C4": 58
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/input/handoff.xlsx",
+        "sha256": "e264ce586939ad9ef234119ab2217341b23da48fa9e281c450303d7707b3380a",
+        "inputs": {
+          "B2": 10,
+          "B3": 0
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/saved/handoff.xlsx",
+        "sha256": "ee1cef2d4999d465bf847e835c85c0ddbdccff34d08125dec5c2dae3c34d74bc",
+        "values": {
+          "C2": 58,
+          "C3": 0,
+          "C4": 58
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y0/reopened/handoff.xlsx",
+        "sha256": "44973409bd4206edbc962a0d174ae3907893d6a0093754cc81cfcac01956f3fa",
+        "values": {
+          "C2": 58,
+          "C3": 0,
+          "C4": 58
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 10,
+        "C4": 68
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/input/handoff.xlsx",
+        "sha256": "601769a1c2631ff237ed6c67122a3911d6492e2b0d5bb6fd93be68a3e2840044",
+        "inputs": {
+          "B2": 10,
+          "B3": 2
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/saved/handoff.xlsx",
+        "sha256": "bd000fe645dd3012ff53b1943c5ea1ad3771811bdcb56fa0662f391aa6846924",
+        "values": {
+          "C2": 58,
+          "C3": 10,
+          "C4": 68
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y2/reopened/handoff.xlsx",
+        "sha256": "bd000fe645dd3012ff53b1943c5ea1ad3771811bdcb56fa0662f391aa6846924",
+        "values": {
+          "C2": 58,
+          "C3": 10,
+          "C4": 68
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 15,
+        "C4": 73
+      },
+      "authoring": {
+        "author": "openpyxl (test copies only; no calculation)",
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/input/handoff.xlsx",
+        "sha256": "cdecf77c26295661362aeadd656fe55464d7bfebad3cdf5878e0cc6c9856679e",
+        "inputs": {
+          "B2": 10,
+          "B3": 3
+        },
+        "formula_caches_before_consumer": null
+      },
+      "saved": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/saved/handoff.xlsx",
+        "sha256": "a3eae333ae744eae89594fa0eb214d2714fa1bd9c3a769b2de3125affaa292b0",
+        "values": {
+          "C2": 58,
+          "C3": 15,
+          "C4": 73
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      },
+      "reopened": {
+        "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/x10-y3/reopened/handoff.xlsx",
+        "sha256": "a3eae333ae744eae89594fa0eb214d2714fa1bd9c3a769b2de3125affaa292b0",
+        "values": {
+          "C2": 58,
+          "C3": 15,
+          "C4": 73
+        },
+        "formulas": {
+          "C2": "=B2*(6)+(-2)",
+          "C3": "=B3*(5)",
+          "C4": "=SUM(C2:C3)"
+        }
+      }
+    }
+  ],
+  "environment": {
+    "platform": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35",
+    "python": "3.12.14",
+    "openpyxl": "3.1.5",
+    "github_sha": "af79b6f78f6f0d5000afb452348e7f4d23f16218",
+    "github_run_id": "37215341186",
+    "runner_environment": "github-hosted"
+  },
+  "artifact_preflight": {
+    "status": "passed",
+    "method": "independent Python formula parser + openpyxl + ZIP/XML inspection",
+    "native_application_recalculation": false,
+    "source": {
+      "path": "/home/runner/work/sheet-detach/sheet-detach/generated/source.xlsx",
+      "sha256": "5681f0d4b36d5cc5217c05aad50ca69d211ce5b3bfd0758686b16ee65970216c"
+    },
+    "handoff": {
+      "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/browser/actual-artifacts/handoff.xlsx",
+      "sha256": "5468fb273a0ba0fed74909e82f118bd98934a9619d22bba68d01fe4df97f19d2"
+    },
+    "source_package": {
+      "sheets": {
+        "Plan": "xl/worksheets/sheet1.xml",
+        "Constants": "xl/worksheets/sheet2.xml",
+        "Derived": "xl/worksheets/sheet3.xml"
+      },
+      "parts": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "xl/_rels/workbook.xml.rels",
+        "xl/styles.xml",
+        "xl/workbook.xml",
+        "xl/worksheets/sheet1.xml",
+        "xl/worksheets/sheet2.xml",
+        "xl/worksheets/sheet3.xml"
+      ],
+      "relationships": [
+        {
+          "part": "_rels/.rels",
+          "id": "rId1",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument",
+          "target": "xl/workbook.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rId1",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+          "target": "xl/worksheets/sheet1.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rId2",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+          "target": "xl/worksheets/sheet2.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rId3",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+          "target": "xl/worksheets/sheet3.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rIdStyles",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles",
+          "target": "xl/styles.xml"
+        }
+      ],
+      "formula_records": {
+        "Plan!C2": {
+          "formula": "=B2*Derived!$B$2+Constants!$B$3",
+          "cache": "999",
+          "type": "n",
+          "style": "3"
+        },
+        "Plan!C3": {
+          "formula": "=B3*Constants!$B$4",
+          "cache": "999",
+          "type": "n",
+          "style": "3"
+        },
+        "Plan!C4": {
+          "formula": "=SUM(C2:C3)",
+          "cache": "999",
+          "type": "n",
+          "style": "3"
+        },
+        "Derived!B2": {
+          "formula": "=Constants!B2*2",
+          "cache": "999",
+          "type": "n",
+          "style": "3"
+        }
+      },
+      "styles_sha256": "16ff85527b568790773eff9e3a1350b7b6c419754ef937211070b50eb9abbb0f"
+    },
+    "handoff_package": {
+      "sheets": {
+        "Plan": "xl/worksheets/sheet1.xml"
+      },
+      "parts": [
+        "[Content_Types].xml",
+        "_rels/.rels",
+        "xl/_rels/workbook.xml.rels",
+        "xl/styles.xml",
+        "xl/workbook.xml",
+        "xl/worksheets/sheet1.xml"
+      ],
+      "relationships": [
+        {
+          "part": "_rels/.rels",
+          "id": "rId1",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument",
+          "target": "xl/workbook.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rId1",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+          "target": "xl/worksheets/sheet1.xml"
+        },
+        {
+          "part": "xl/_rels/workbook.xml.rels",
+          "id": "rId2",
+          "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles",
+          "target": "xl/styles.xml"
+        }
+      ],
+      "formula_records": {
+        "Plan!C2": {
+          "formula": "=B2*(6)+(-2)",
+          "cache": "46",
+          "type": "n",
+          "style": "3"
+        },
+        "Plan!C3": {
+          "formula": "=B3*(5)",
+          "cache": "10",
+          "type": "n",
+          "style": "3"
+        },
+        "Plan!C4": {
+          "formula": "=SUM(C2:C3)",
+          "cache": "56",
+          "type": "n",
+          "style": "3"
+        }
+      },
+      "styles_sha256": "16ff85527b568790773eff9e3a1350b7b6c419754ef937211070b50eb9abbb0f"
+    },
+    "formulas": {
+      "C2": "=B2*(6)+(-2)",
+      "C3": "=B3*(5)",
+      "C4": "=SUM(C2:C3)"
+    },
+    "local_dependencies": {
+      "C2": [
+        "Plan!B2"
+      ],
+      "C3": [
+        "Plan!B3"
+      ],
+      "C4": [
+        "Plan!C2",
+        "Plan!C3"
+      ]
+    },
+    "preserved_styled_cells": [
+      "A1",
+      "B2",
+      "C2",
+      "B3",
+      "C3",
+      "C4"
+    ],
+    "initial_values": {
+      "C2": 46.0,
+      "C3": 10.0,
+      "C4": 56.0
+    },
+    "mutated_values": {
+      "C2": 58.0,
+      "C3": 15.0,
+      "C4": 73.0
+    },
+    "closed_form_states": [
+      {
+        "inputs": {
+          "B2": 0,
+          "B3": 0
+        },
+        "expected": {
+          "C2": -2,
+          "C3": 0,
+          "C4": -2
+        },
+        "source_formula_values": {
+          "C2": -2.0,
+          "C3": 0,
+          "C4": -2.0
+        },
+        "handoff_formula_values": {
+          "C2": -2.0,
+          "C3": 0.0,
+          "C4": -2.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 0,
+          "B3": 2
+        },
+        "expected": {
+          "C2": -2,
+          "C3": 10,
+          "C4": 8
+        },
+        "source_formula_values": {
+          "C2": -2.0,
+          "C3": 10,
+          "C4": 8.0
+        },
+        "handoff_formula_values": {
+          "C2": -2.0,
+          "C3": 10.0,
+          "C4": 8.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 0,
+          "B3": 3
+        },
+        "expected": {
+          "C2": -2,
+          "C3": 15,
+          "C4": 13
+        },
+        "source_formula_values": {
+          "C2": -2.0,
+          "C3": 15,
+          "C4": 13.0
+        },
+        "handoff_formula_values": {
+          "C2": -2.0,
+          "C3": 15.0,
+          "C4": 13.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 1,
+          "B3": 0
+        },
+        "expected": {
+          "C2": 4,
+          "C3": 0,
+          "C4": 4
+        },
+        "source_formula_values": {
+          "C2": 4.0,
+          "C3": 0,
+          "C4": 4.0
+        },
+        "handoff_formula_values": {
+          "C2": 4.0,
+          "C3": 0.0,
+          "C4": 4.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 1,
+          "B3": 2
+        },
+        "expected": {
+          "C2": 4,
+          "C3": 10,
+          "C4": 14
+        },
+        "source_formula_values": {
+          "C2": 4.0,
+          "C3": 10,
+          "C4": 14.0
+        },
+        "handoff_formula_values": {
+          "C2": 4.0,
+          "C3": 10.0,
+          "C4": 14.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 1,
+          "B3": 3
+        },
+        "expected": {
+          "C2": 4,
+          "C3": 15,
+          "C4": 19
+        },
+        "source_formula_values": {
+          "C2": 4.0,
+          "C3": 15,
+          "C4": 19.0
+        },
+        "handoff_formula_values": {
+          "C2": 4.0,
+          "C3": 15.0,
+          "C4": 19.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 8,
+          "B3": 0
+        },
+        "expected": {
+          "C2": 46,
+          "C3": 0,
+          "C4": 46
+        },
+        "source_formula_values": {
+          "C2": 46.0,
+          "C3": 0,
+          "C4": 46.0
+        },
+        "handoff_formula_values": {
+          "C2": 46.0,
+          "C3": 0.0,
+          "C4": 46.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 8,
+          "B3": 2
+        },
+        "expected": {
+          "C2": 46,
+          "C3": 10,
+          "C4": 56
+        },
+        "source_formula_values": {
+          "C2": 46.0,
+          "C3": 10,
+          "C4": 56.0
+        },
+        "handoff_formula_values": {
+          "C2": 46.0,
+          "C3": 10.0,
+          "C4": 56.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 8,
+          "B3": 3
+        },
+        "expected": {
+          "C2": 46,
+          "C3": 15,
+          "C4": 61
+        },
+        "source_formula_values": {
+          "C2": 46.0,
+          "C3": 15,
+          "C4": 61.0
+        },
+        "handoff_formula_values": {
+          "C2": 46.0,
+          "C3": 15.0,
+          "C4": 61.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 10,
+          "B3": 0
+        },
+        "expected": {
+          "C2": 58,
+          "C3": 0,
+          "C4": 58
+        },
+        "source_formula_values": {
+          "C2": 58.0,
+          "C3": 0,
+          "C4": 58.0
+        },
+        "handoff_formula_values": {
+          "C2": 58.0,
+          "C3": 0.0,
+          "C4": 58.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 10,
+          "B3": 2
+        },
+        "expected": {
+          "C2": 58,
+          "C3": 10,
+          "C4": 68
+        },
+        "source_formula_values": {
+          "C2": 58.0,
+          "C3": 10,
+          "C4": 68.0
+        },
+        "handoff_formula_values": {
+          "C2": 58.0,
+          "C3": 10.0,
+          "C4": 68.0
+        }
+      },
+      {
+        "inputs": {
+          "B2": 10,
+          "B3": 3
+        },
+        "expected": {
+          "C2": 58,
+          "C3": 15,
+          "C4": 73
+        },
+        "source_formula_values": {
+          "C2": 58.0,
+          "C3": 15,
+          "C4": 73.0
+        },
+        "handoff_formula_values": {
+          "C2": 58.0,
+          "C3": 15.0,
+          "C4": 73.0
+        }
+      }
+    ],
+    "state_count": 12
+  },
+  "browser_download_sha256": "5468fb273a0ba0fed74909e82f118bd98934a9619d22bba68d01fe4df97f19d2",
+  "consumer_version": "LibreOffice 7.3.7.2 30(Build:2)",
+  "artifacts_directory": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8",
+  "initial": {
+    "inputs": {
+      "B2": 8,
+      "B3": 2
+    },
+    "expected": {
+      "C2": 46,
+      "C3": 10,
+      "C4": 56
+    },
+    "saved": {
+      "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/saved/handoff.xlsx",
+      "sha256": "2558083d0ea48d331f291728d6b999dd257a7627751d78bdb47a4dc1969b691c",
+      "values": {
+        "C2": 46,
+        "C3": 10,
+        "C4": 56
+      },
+      "formulas": {
+        "C2": "=B2*(6)+(-2)",
+        "C3": "=B3*(5)",
+        "C4": "=SUM(C2:C3)"
+      }
+    },
+    "reopened": {
+      "path": "/home/runner/work/sheet-detach/sheet-detach/test-results/native/consumer-vveijxe8/initial/reopened/handoff.xlsx",
+      "sha256": "695344c819ca2c40d132e0a9cabce159c6773eb9d9c6bff3ce6f1c3c3979616a",
+      "values": {
+        "C2": 46,
+        "C3": 10,
+        "C4": 56
+      },
+      "formulas": {
+        "C2": "=B2*(6)+(-2)",
+        "C3": "=B3*(5)",
+        "C4": "=SUM(C2:C3)"
+      }
+    }
+  },
+  "state_count": 12,
+  "native_conversion_count": 26,
+  "original_browser_download_unchanged": true,
+  "finished_at": "2026-10-04T16:05:20.017348+00:00"
+}

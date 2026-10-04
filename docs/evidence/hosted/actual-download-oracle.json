@@ -1,0 +1,479 @@
+{
+  "status": "passed",
+  "method": "independent Python formula parser + openpyxl + ZIP/XML inspection",
+  "native_application_recalculation": false,
+  "source": {
+    "path": "/home/runner/work/sheet-detach/sheet-detach/generated/source.xlsx",
+    "sha256": "5681f0d4b36d5cc5217c05aad50ca69d211ce5b3bfd0758686b16ee65970216c"
+  },
+  "handoff": {
+    "path": "test-results/browser/actual-artifacts/handoff.xlsx",
+    "sha256": "5468fb273a0ba0fed74909e82f118bd98934a9619d22bba68d01fe4df97f19d2"
+  },
+  "source_package": {
+    "sheets": {
+      "Plan": "xl/worksheets/sheet1.xml",
+      "Constants": "xl/worksheets/sheet2.xml",
+      "Derived": "xl/worksheets/sheet3.xml"
+    },
+    "parts": [
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "xl/_rels/workbook.xml.rels",
+      "xl/styles.xml",
+      "xl/workbook.xml",
+      "xl/worksheets/sheet1.xml",
+      "xl/worksheets/sheet2.xml",
+      "xl/worksheets/sheet3.xml"
+    ],
+    "relationships": [
+      {
+        "part": "_rels/.rels",
+        "id": "rId1",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument",
+        "target": "xl/workbook.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rId1",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+        "target": "xl/worksheets/sheet1.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rId2",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+        "target": "xl/worksheets/sheet2.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rId3",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+        "target": "xl/worksheets/sheet3.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rIdStyles",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles",
+        "target": "xl/styles.xml"
+      }
+    ],
+    "formula_records": {
+      "Plan!C2": {
+        "formula": "=B2*Derived!$B$2+Constants!$B$3",
+        "cache": "999",
+        "type": "n",
+        "style": "3"
+      },
+      "Plan!C3": {
+        "formula": "=B3*Constants!$B$4",
+        "cache": "999",
+        "type": "n",
+        "style": "3"
+      },
+      "Plan!C4": {
+        "formula": "=SUM(C2:C3)",
+        "cache": "999",
+        "type": "n",
+        "style": "3"
+      },
+      "Derived!B2": {
+        "formula": "=Constants!B2*2",
+        "cache": "999",
+        "type": "n",
+        "style": "3"
+      }
+    },
+    "styles_sha256": "16ff85527b568790773eff9e3a1350b7b6c419754ef937211070b50eb9abbb0f"
+  },
+  "handoff_package": {
+    "sheets": {
+      "Plan": "xl/worksheets/sheet1.xml"
+    },
+    "parts": [
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "xl/_rels/workbook.xml.rels",
+      "xl/styles.xml",
+      "xl/workbook.xml",
+      "xl/worksheets/sheet1.xml"
+    ],
+    "relationships": [
+      {
+        "part": "_rels/.rels",
+        "id": "rId1",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument",
+        "target": "xl/workbook.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rId1",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet",
+        "target": "xl/worksheets/sheet1.xml"
+      },
+      {
+        "part": "xl/_rels/workbook.xml.rels",
+        "id": "rId2",
+        "type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles",
+        "target": "xl/styles.xml"
+      }
+    ],
+    "formula_records": {
+      "Plan!C2": {
+        "formula": "=B2*(6)+(-2)",
+        "cache": "46",
+        "type": "n",
+        "style": "3"
+      },
+      "Plan!C3": {
+        "formula": "=B3*(5)",
+        "cache": "10",
+        "type": "n",
+        "style": "3"
+      },
+      "Plan!C4": {
+        "formula": "=SUM(C2:C3)",
+        "cache": "56",
+        "type": "n",
+        "style": "3"
+      }
+    },
+    "styles_sha256": "16ff85527b568790773eff9e3a1350b7b6c419754ef937211070b50eb9abbb0f"
+  },
+  "formulas": {
+    "C2": "=B2*(6)+(-2)",
+    "C3": "=B3*(5)",
+    "C4": "=SUM(C2:C3)"
+  },
+  "local_dependencies": {
+    "C2": [
+      "Plan!B2"
+    ],
+    "C3": [
+      "Plan!B3"
+    ],
+    "C4": [
+      "Plan!C2",
+      "Plan!C3"
+    ]
+  },
+  "preserved_styled_cells": [
+    "A1",
+    "B2",
+    "C2",
+    "B3",
+    "C3",
+    "C4"
+  ],
+  "initial_values": {
+    "C2": 46.0,
+    "C3": 10.0,
+    "C4": 56.0
+  },
+  "mutated_values": {
+    "C2": 58.0,
+    "C3": 15.0,
+    "C4": 73.0
+  },
+  "closed_form_states": [
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 0
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 0,
+        "C4": -2
+      },
+      "source_formula_values": {
+        "C2": -2.0,
+        "C3": 0,
+        "C4": -2.0
+      },
+      "handoff_formula_values": {
+        "C2": -2.0,
+        "C3": 0.0,
+        "C4": -2.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 2
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 10,
+        "C4": 8
+      },
+      "source_formula_values": {
+        "C2": -2.0,
+        "C3": 10,
+        "C4": 8.0
+      },
+      "handoff_formula_values": {
+        "C2": -2.0,
+        "C3": 10.0,
+        "C4": 8.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 0,
+        "B3": 3
+      },
+      "expected": {
+        "C2": -2,
+        "C3": 15,
+        "C4": 13
+      },
+      "source_formula_values": {
+        "C2": -2.0,
+        "C3": 15,
+        "C4": 13.0
+      },
+      "handoff_formula_values": {
+        "C2": -2.0,
+        "C3": 15.0,
+        "C4": 13.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 0,
+        "C4": 4
+      },
+      "source_formula_values": {
+        "C2": 4.0,
+        "C3": 0,
+        "C4": 4.0
+      },
+      "handoff_formula_values": {
+        "C2": 4.0,
+        "C3": 0.0,
+        "C4": 4.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 10,
+        "C4": 14
+      },
+      "source_formula_values": {
+        "C2": 4.0,
+        "C3": 10,
+        "C4": 14.0
+      },
+      "handoff_formula_values": {
+        "C2": 4.0,
+        "C3": 10.0,
+        "C4": 14.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 1,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 4,
+        "C3": 15,
+        "C4": 19
+      },
+      "source_formula_values": {
+        "C2": 4.0,
+        "C3": 15,
+        "C4": 19.0
+      },
+      "handoff_formula_values": {
+        "C2": 4.0,
+        "C3": 15.0,
+        "C4": 19.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 0,
+        "C4": 46
+      },
+      "source_formula_values": {
+        "C2": 46.0,
+        "C3": 0,
+        "C4": 46.0
+      },
+      "handoff_formula_values": {
+        "C2": 46.0,
+        "C3": 0.0,
+        "C4": 46.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 10,
+        "C4": 56
+      },
+      "source_formula_values": {
+        "C2": 46.0,
+        "C3": 10,
+        "C4": 56.0
+      },
+      "handoff_formula_values": {
+        "C2": 46.0,
+        "C3": 10.0,
+        "C4": 56.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 8,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 46,
+        "C3": 15,
+        "C4": 61
+      },
+      "source_formula_values": {
+        "C2": 46.0,
+        "C3": 15,
+        "C4": 61.0
+      },
+      "handoff_formula_values": {
+        "C2": 46.0,
+        "C3": 15.0,
+        "C4": 61.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 0
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 0,
+        "C4": 58
+      },
+      "source_formula_values": {
+        "C2": 58.0,
+        "C3": 0,
+        "C4": 58.0
+      },
+      "handoff_formula_values": {
+        "C2": 58.0,
+        "C3": 0.0,
+        "C4": 58.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 2
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 10,
+        "C4": 68
+      },
+      "source_formula_values": {
+        "C2": 58.0,
+        "C3": 10,
+        "C4": 68.0
+      },
+      "handoff_formula_values": {
+        "C2": 58.0,
+        "C3": 10.0,
+        "C4": 68.0
+      }
+    },
+    {
+      "inputs": {
+        "B2": 10,
+        "B3": 3
+      },
+      "expected": {
+        "C2": 58,
+        "C3": 15,
+        "C4": 73
+      },
+      "source_formula_values": {
+        "C2": 58.0,
+        "C3": 15,
+        "C4": 73.0
+      },
+      "handoff_formula_values": {
+        "C2": 58.0,
+        "C3": 15.0,
+        "C4": 73.0
+      }
+    }
+  ],
+  "state_count": 12,
+  "parser_self_tests": {
+    "valid_formulas": 10,
+    "rejected_formulas": 7
+  },
+  "rejected_artifact_mutations": [
+    {
+      "mutation": "flatten_formula",
+      "status": "rejected",
+      "reason": "Formula cells missing or unexpected: ['Plan!C3', 'Plan!C4']"
+    },
+    {
+      "mutation": "wrong_operator",
+      "status": "rejected",
+      "reason": "handoff x=0, y=0 C2: 4.0 != -2"
+    },
+    {
+      "mutation": "stale_cache",
+      "status": "rejected",
+      "reason": "Stale formula cache at Plan!C2"
+    },
+    {
+      "mutation": "removed_name_leak",
+      "status": "rejected",
+      "reason": "Removed sheet name leaked into xl/workbook.xml"
+    },
+    {
+      "mutation": "orphan_sheet",
+      "status": "rejected",
+      "reason": "Orphan or missing worksheet payload"
+    },
+    {
+      "mutation": "dangling_relationship",
+      "status": "rejected",
+      "reason": "Dangling relationship xl/_rels/workbook.xml.rels -> xl/worksheets/missing.xml"
+    },
+    {
+      "mutation": "changed_cell_style",
+      "status": "rejected",
+      "reason": "Cell style changed at Plan!C2"
+    },
+    {
+      "mutation": "missing_manifest_sheet",
+      "status": "rejected",
+      "reason": "Worksheet manifest mismatch"
+    }
+  ]
+}

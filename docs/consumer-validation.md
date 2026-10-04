@@ -60,8 +60,9 @@ results, values, formulas, and every state. Failed or incomplete runs write
 failure/partial evidence and exit nonzero.
 
 Evidence: `test-results/native/evidence.json` and the saved/reopened workbooks in
-its `artifacts_directory`. A successful future CI run is required before making
-any actual-consumer claim. `python3 tools/libreoffice.py --validate` is safe for
+its `artifacts_directory`. The [verified hosted run](https://github.com/Masanori-Spec/sheet-detach/actions/runs/37215341186)
+passed all 26 conversions in LibreOffice 7.3.7.2; see
+[exact evidence and scope](VERIFICATION.md). `python3 tools/libreoffice.py --validate` is safe for
 local syntax and configuration checks, never launches LibreOffice, and cannot
 produce successful native-recalculation evidence. This does not establish
 Microsoft Excel compatibility or general Excel formula support.
