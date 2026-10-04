@@ -58,7 +58,7 @@ jobs:
       - name: Install distribution-provided LibreOffice Calc
         run: |
           sudo apt-get update
-          sudo apt-get install --no-install-recommends -y libreoffice-calc fonts-noto-cjk
+          sudo apt-get install --no-install-recommends -y libreoffice-calc fonts-noto-cjk poppler-utils
       - run: npm run build
       - run: npm run fixture
       - name: Sandboxed Chromium and actual downloads
