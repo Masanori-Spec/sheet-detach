@@ -1,0 +1,231 @@
+// This test is intended for an ordinary non-root CI runner with the Chromium sandbox.
+// Never disable the sandbox or add --no-sandbox to work around an environment failure.
+import { chromium, expect } from '@playwright/test';
+import assert from 'node:assert/strict';
+import { createServer } from 'node:http';
+import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { resolve, extname, dirname } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { demoBytes, fixtureBytes } from '../src/fixture.mjs';
+import { importWorkbook, analyze } from '../src/core.mjs';
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+const dist = resolve(root, 'dist');
+const output = resolve(root, 'test-results/browser');
+const artifacts = resolve(output, 'actual-artifacts');
+await mkdir(artifacts, { recursive: true });
+const evidence = { suite:'sheet-detach-real-browser', sandbox:true, mount:'/sheet-detach/', checks:[], downloads:[], screenshots:[], startedAt:new Date().toISOString() };
+const mime = { '.html':'text/html; charset=utf-8', '.js':'text/javascript; charset=utf-8', '.css':'text/css; charset=utf-8', '.json':'application/json', '.svg':'image/svg+xml', '.png':'image/png', '.woff2':'font/woff2' };
+await stat(resolve(dist, 'index.html')); // Build failure must not silently test another directory.
+const server = createServer(async (req,res) => {
+  try {
+    const url = new URL(req.url, 'http://localhost');
+    if (!url.pathname.startsWith('/sheet-detach/')) {res.writeHead(404);res.end('Wrong mount');return;}
+    const path = resolve(dist, decodeURIComponent(url.pathname.slice('/sheet-detach/'.length)) || 'index.html');
+    if(path!==dist && !path.startsWith(dist+'/')) {res.writeHead(403);res.end();return;}
+    const bytes=await readFile(path);
+    res.writeHead(200, {'content-type':mime[extname(path)] || 'application/octet-stream','cache-control':'no-store'});res.end(bytes);
+  } catch {res.writeHead(404);res.end('Not found');}
+});
+await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve));
+const address=`http://127.0.0.1:${server.address().port}/sheet-detach/`;
+let browser;
+const errors=[];
+const network=[];
+const mark = name => evidence.checks.push(name);
+async function noPageOverflow(page) {
+  const sizes=await page.evaluate(()=>({document:document.documentElement.scrollWidth,body:document.body.scrollWidth,viewport:window.innerWidth}));
+  assert.ok(sizes.document<=sizes.viewport+1 && sizes.body<=sizes.viewport+1, `Horizontal page overflow: ${JSON.stringify(sizes)}`);
+}
+async function shot(page,name) {await page.screenshot({path:resolve(output,`${name}.png`),fullPage:true});evidence.screenshots.push(`${name}.png`);}
+async function openDemo(page) {await page.locator('#load-demo').click();await expect(page.locator('#filename')).toHaveText('planning-sample.xlsx');await expect(page.locator('#review-status')).toHaveAttribute('data-state','staged');}
+async function checkReady(page) {await page.locator('#analyze').click();await expect(page.locator('#review-status')).toHaveAttribute('data-state','ready');await expect(page.locator('#download-xlsx')).toBeEnabled();await expect(page.locator('#review-title')).toBeFocused();}
+async function expectedValues(page,expected={C2:46,C3:10,C4:56}) {for(const [cell,value] of Object.entries(expected))await expect(page.locator(`tr[data-cell="Plan!${cell}"] .formula-value`)).toHaveAttribute('data-raw-value',String(value));}
+async function saveDownload(page,id,name) {const pending=page.waitForEvent('download');await page.locator(id).click();const download=await pending;assert.equal(download.suggestedFilename(),name);const path=resolve(artifacts,name);await download.saveAs(path);assert.ok((await stat(path)).size>0);evidence.downloads.push(name);return path;}
+try {
+  browser=await chromium.launch({headless:true,chromiumSandbox:true});
+  const context=await browser.newContext({viewport:{width:1440,height:1040},deviceScaleFactor:1,acceptDownloads:true,locale:'ja-JP',reducedMotion:'reduce'});
+  context.on('request',request=>network.push({url:request.url(),method:request.method()}));
+  const page=await context.newPage();
+  page.on('pageerror',error=>errors.push(error.message));
+  page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+  await page.goto(address,{waitUntil:'networkidle'});
+  await expect(page.locator('html')).toHaveAttribute('lang','ja');
+  await expect(page.getByRole('heading',{name:'必要なシートだけ。 数式は、そのまま。'})).toBeVisible();
+  await expect(page.locator('#analyze')).toBeDisabled();
+  await expect(page.locator('#downloads-section')).toBeHidden();
+  await noPageOverflow(page);
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.skip-link')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#workspace')).toBeFocused();
+  mark('Japanese initial state, disabled export, keyboard skip link');
+  await openDemo(page);
+  await expect(page.locator('.sheet-choice')).toHaveCount(3);
+  await expect(page.locator('input[data-sheet="Plan"]')).toBeChecked();
+  await expect(page.locator('input[data-sheet="Constants"]')).not.toBeChecked();
+  await expect(page.locator('input[data-sheet="Derived"]')).not.toBeChecked();
+  await expect(page.locator('#preview-body tr')).toHaveCount(0);
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  mark('Sample import is staged until an explicit check');
+  await checkReady(page);
+  await expectedValues(page);
+  await expect(page.locator('#ledger-list .ledger-entry')).toHaveCount(3);
+  await expect(page.locator('#ledger-list')).toContainText('Plan!C2');
+  await expect(page.locator('#ledger-list')).toContainText('Derived!B2');
+  await expect(page.locator('tr[data-cell="Plan!C4"] .formula-after')).toContainText('SUM(C2:C3)');
+  await expect(page.locator('.validation-note')).toContainText('Microsoft Excel');
+  await shot(page,'desktop-ja');
+  const xlsxPath=await saveDownload(page,'#download-xlsx','handoff.xlsx');
+  await saveDownload(page,'#download-ledger','ledger.csv');
+  await saveDownload(page,'#download-recipe','recipe.json');
+  await saveDownload(page,'#download-report','report.txt');
+  const savedWorkbook=await importWorkbook(new Uint8Array(await readFile(xlsxPath)));
+  assert.deepEqual(savedWorkbook.sheets.map(s=>s.name),['Plan']);
+  const savedAnalysis=analyze(savedWorkbook,['Plan']);
+  assert.equal(savedAnalysis.ok,true);
+  assert.equal(savedAnalysis.values['Plan!C2'],46);
+  assert.equal(savedAnalysis.values['Plan!C3'],10);
+  assert.equal(savedAnalysis.values['Plan!C4'],56);
+  assert.equal(savedAnalysis.ledger.length,0);
+  const recipe=JSON.parse(await readFile(resolve(artifacts,'recipe.json'),'utf8'));
+  assert.deepEqual(recipe.keptSheets,['Plan']);
+  assert.equal(recipe.sourceFormulaCaches,'ignored');
+  assert.equal(recipe.formulas.length,3);
+  assert.match(await readFile(resolve(artifacts,'ledger.csv'),'utf8'),/Derived/);
+  assert.match(await readFile(resolve(artifacts,'report.txt'),'utf8'),/Microsoft Excel.*unverified/i);
+  mark('Actual UI downloads: XLSX, CSV, JSON, TXT saved and reopened; cached values ignored');
+  await page.locator('#lang-en').focus();await page.keyboard.press('Enter');
+  await expect(page.locator('html')).toHaveAttribute('lang','en');
+  await expect(page.locator('#lang-en')).toHaveAttribute('aria-pressed','true');
+  await expect(page.locator('#preview-title')).toHaveText('Formula preview');
+  await expectedValues(page);
+  await shot(page,'desktop-en');
+  await noPageOverflow(page);
+  mark('English toggle preserves current reviewed results');
+  await page.locator('input[data-sheet="Constants"]').check();
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','stale');
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await expect(page.locator('#preview-body tr')).toHaveCount(0);
+  await expect(page.locator('#downloads-section')).toBeHidden();
+  await expect(page.locator('#message-banner')).toContainText('Previous previews and exports were cleared');
+  await page.locator('#analyze').click();
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await expect(page.locator('.issue-path')).toHaveText('Plan!C2 → Derived!B2 → Constants!B2');
+  await page.locator('input[data-sheet="Derived"]').check();
+  await checkReady(page);
+  await expectedValues(page);
+  await expect(page.locator('#ledger-list .ledger-entry')).toHaveCount(0);
+  await expect(page.locator('#preview-body tr')).toHaveCount(4);
+  await page.locator('input[data-sheet="Plan"]').uncheck();
+  await page.locator('input[data-sheet="Constants"]').uncheck();
+  await page.locator('input[data-sheet="Derived"]').uncheck();
+  await expect(page.locator('#analyze')).toBeDisabled();
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await expect(page.locator('#message-banner')).toContainText('Select at least one');
+  await page.locator('input[data-sheet="Plan"]').focus();await page.keyboard.press('Space');
+  await checkReady(page);await expectedValues(page);
+  mark('Sheet changes synchronously clear stale preview/export; empty selection blocks; keyboard selection works');
+  await page.locator('#reset').click();
+  await expect(page.locator('#load-demo')).toBeFocused();
+  await expect(page.locator('#loaded-file')).toBeHidden();
+  await expect(page.locator('.sheet-choice')).toHaveCount(0);
+  await expect(page.locator('#analyze')).toBeDisabled();
+  await expect(page.locator('#preview-body tr')).toHaveCount(0);
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  mark('Reset removes workbook, results, selections, downloads and restores useful keyboard focus');
+  await page.locator('#workbook-file').setInputFiles(xlsxPath);
+  await expect(page.locator('#filename')).toHaveText('handoff.xlsx');
+  await expect(page.locator('.sheet-choice')).toHaveCount(1);
+  await checkReady(page);await expectedValues(page);
+  await expect(page.locator('#ledger-list')).toContainText('No replacements needed');
+  await page.locator('#workbook-file').setInputFiles(xlsxPath);
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','staged');
+  await expect(page.locator('#preview-body tr')).toHaveCount(0);
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await checkReady(page);await expectedValues(page);
+  mark('Exported workbook reimports correctly, including repeated import of the same file');
+  await page.locator('#lang-ja').click();
+  await page.locator('#load-guard').click();
+  await expect(page.locator('#filename')).toHaveText('back-dependency-sample.xlsx');
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await page.locator('#analyze').click();
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await expect(page.locator('.issue-code')).toHaveText('KEPT_BACKLINK');
+  await expect(page.locator('.issue-path')).toHaveText('Plan!C2 → Derived!B2 → Plan!B2');
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await expect(page.locator('#downloads-section')).toBeHidden();
+  await shot(page,'blocked-ja');
+  await page.locator('input[data-sheet="Derived"]').check();
+  await expect(page.locator('.issue')).toHaveCount(0);
+  await checkReady(page);
+  await expect(page.locator('#issues-section')).toBeHidden();
+  await expectedValues(page,{C2:126,C3:10,C4:136});
+  mark('Returning dependency blocks with exact path; keeping its sheet resolves the guard');
+  const unsupported=await fixtureBytes([{name:'Plan',cells:{A1:'Unsupported test',B2:2,C2:{formula:'MIN(B2,3)'}}}]);
+  await page.locator('#workbook-file').setInputFiles({name:'unsupported.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:Buffer.from(unsupported)});
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','staged');
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await page.locator('#analyze').click();
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await expect(page.locator('#issues-section')).toBeVisible();
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await expect(page.locator('#preview-body tr')).toHaveCount(0);
+  mark('Unsupported function cannot produce preview or downloadable artifacts');
+  await page.locator('#workbook-file').setInputFiles({name:'malformed.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:Buffer.from('not a zip')});
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await expect(page.locator('#message-banner')).toHaveAttribute('data-kind','error');
+  await expect(page.locator('#loaded-file')).toBeHidden();
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  await expect(page.locator('#analyze')).toBeDisabled();
+  mark('Malformed replacement file removes old workbook and outputs');
+  await page.evaluate(()=>{window.__fileReads=0;const original=File.prototype.arrayBuffer;File.prototype.arrayBuffer=function(...args){window.__fileReads++;return original.apply(this,args);};});
+  await page.locator('#workbook-file').setInputFiles({name:'oversized.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:Buffer.alloc(8*1024*1024+1)});
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await expect(page.locator('#message-banner')).toContainText('8 MiB');
+  assert.equal(await page.evaluate(()=>window.__fileReads),0,'Oversized file must be rejected before reading its bytes');
+  await expect(page.locator('#download-xlsx')).toBeDisabled();
+  mark('Oversized file rejected before File.arrayBuffer allocation');
+
+  const malicious=await fixtureBytes([{name:'Plan',cells:{A1:'<img src=x onerror=alert(1)>',B2:7,C2:{formula:'B2*2'}}}]);
+  await page.locator('#workbook-file').setInputFiles({name:'<img onerror=alert(1)>.xlsx',mimeType:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',buffer:Buffer.from(malicious)});
+  await expect(page.locator('#filename')).toHaveText('<img onerror=alert(1)>.xlsx');
+  await expect(page.locator('#loaded-file img')).toHaveCount(0);
+  await checkReady(page);
+  mark('Imported filename is rendered as text, not executable HTML');
+  await openDemo(page);await checkReady(page);await expectedValues(page);
+  await page.setViewportSize({width:390,height:844});
+  await noPageOverflow(page);
+  await shot(page,'mobile-ja');
+  await page.locator('#lang-en').click();
+  await expect(page.locator('html')).toHaveAttribute('lang','en');
+  await noPageOverflow(page);
+  await shot(page,'mobile-en');
+  const unnamed=await page.locator('button').evaluateAll(buttons=>buttons.filter(button=>!button.getAttribute('aria-label')&&!button.textContent.trim()).map(button=>button.id));
+  assert.deepEqual(unnamed,[]);
+  assert.equal(await page.locator('#announcement').getAttribute('aria-live'),'polite');
+  await expect(page.locator('#workbook-file')).toHaveAttribute('aria-describedby','privacy-note');
+  await page.locator('#load-guard').click();
+  await expect(page.locator('#filename')).toHaveText('back-dependency-sample.xlsx');
+  await page.locator('#analyze').click();
+  await expect(page.locator('#review-status')).toHaveAttribute('data-state','blocked');
+  await noPageOverflow(page);
+  await shot(page,'mobile-blocked-en');
+  mark('390px Japanese and English layout, blocked layout, named controls and live status');
+  assert.deepEqual(errors,[],'Browser errors must be fixed');
+  const external=network.filter(request=>!request.url.startsWith(address));
+  assert.deepEqual(external,[],'Client must not send data or load external resources');
+  assert.ok(network.every(request=>request.method==='GET'),'Client must not upload workbook bytes');
+  evidence.status='passed';evidence.consoleErrors=errors;evidence.network={requests:network.length,external:external.length,onlyGet:true};
+  await context.close();
+} catch(error) {
+  evidence.status='failed';evidence.error=error.stack || String(error);evidence.consoleErrors=errors;
+  if(browser){const page=browser.contexts()[0]?.pages()[0];if(page)await page.screenshot({path:resolve(output,'failure.png'),fullPage:true}).catch(()=>{});}
+  throw error;
+} finally {
+  evidence.finishedAt=new Date().toISOString();
+  await writeFile(resolve(output,'evidence.json'),JSON.stringify(evidence,null,2)+'\n');
+  await browser?.close();
+  await new Promise(resolve=>server.close(resolve));
+}
+console.log(`PASS: ${evidence.checks.length} browser checks; ${evidence.downloads.length} actual UI downloads; ${evidence.screenshots.length} screenshots.`);

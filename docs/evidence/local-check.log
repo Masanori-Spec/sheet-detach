@@ -1,0 +1,165 @@
+
+> sheet-detach@0.1.0 check
+> npm run build && npm test
+
+
+> sheet-detach@0.1.0 build
+> node scripts/build.mjs
+
+Built standalone app: 530290 bytes
+
+> sheet-detach@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ seeded cached values are recomputed and exact exports preserve editable formulas (58.875519ms)
+✔ acyclic omitted-to-kept backlink is blocked with exact path (8.131923ms)
+✔ retaining dependent source sheet preserves quadratic response (12.169048ms)
+✔ 12 closed-form input states remain live after detachment (11.40647ms)
+✔ deterministic repeated exports (9.806973ms)
+✔ numeric AST A1+Other!A1 (8.131774ms)
+✔ numeric AST A1-Other!A2 (11.592465ms)
+✔ numeric AST A1*Other!A2 (7.51463ms)
+✔ numeric AST A1/Other!A4 (8.289827ms)
+✔ numeric AST -Other!A2 (8.228507ms)
+✔ numeric AST +Other!A2 (8.638534ms)
+✔ numeric AST (A1+Other!A1)*A2 (8.035712ms)
+✔ numeric AST Other!A1/Other!A1 (7.459478ms)
+✔ numeric AST Other!A3+Other!A4 (7.989713ms)
+✔ numeric AST SUM(A1,A2,Other!A1) (6.963916ms)
+✔ numeric AST SUM(A1:A2)+Other!A1 (7.237931ms)
+✔ numeric AST 1e2+Other!A4 (6.857401ms)
+✔ numeric AST .5*Other!A1 (7.931277ms)
+✔ numeric AST   A1 + other!$a$1  (6.420961ms)
+✔ repeated references produce occurrence-specific ledger rows (2.820518ms)
+✔ quoted apostrophe sheet names and absolute A1 references (3.683555ms)
+✔ Japanese sheet names (5.046715ms)
+✔ all kept references remain byte-for-byte formula text (2.795531ms)
+✔ kept cross-sheet numeric SUM range is retained (2.660761ms)
+✔ omitted SUM can be recomputed when exposed only as scalar (2.638598ms)
+✔ rejects SUM(Other!A1:A4) (2.840166ms)
+✔ rejects A1:A2 (4.067204ms)
+✔ rejects SUM(A2:A1) (2.806937ms)
+✔ rejects SUM(A1:Other!A1) (2.544909ms)
+✔ rejects A1/Other!A3 (2.742873ms)
+✔ rejects A1+A9 (2.743392ms)
+✔ rejects A1+Missing!A1 (3.093372ms)
+✔ rejects IF(A1,2,3) (4.369722ms)
+✔ rejects NOW() (2.508846ms)
+✔ rejects INDIRECT("A1") (2.543447ms)
+✔ rejects 1^2 (2.393996ms)
+✔ rejects "hello" (2.692938ms)
+✔ rejects [book]Sheet!A1 (2.541564ms)
+✔ rejects SUM(A:A) (3.711827ms)
+✔ rejects NamedValue+1 (2.610998ms)
+✔ rejects A1# (2.360846ms)
+✔ rejects 1&2 (4.621735ms)
+✔ rejects A1>2 (3.902309ms)
+✔ rejects SUM() (3.289392ms)
+✔ rejects 1e101 (3.960476ms)
+✔ text labels cannot be arithmetic operands (2.598108ms)
+✔ literal = text stays text on export (5.131489ms)
+✔ direct cycle witness (2.509888ms)
+✔ indirect cross-sheet cycle witness (2.622384ms)
+✔ long 1500-formula DAG computes without recursive dependency traversal (80.738833ms)
+✔ unsupported omitted formula blocks instead of dropping content (3.798586ms)
+✔ invalid selection blocked (3.411052ms)
+✔ XLSX profile rejects external package (4.455058ms)
+✔ XLSX profile rejects chart part (4.879516ms)
+✔ XLSX profile rejects macro part (5.905928ms)
+✔ XLSX profile rejects data validations (9.049724ms)
+✔ XLSX profile rejects conditional formatting (4.784286ms)
+✔ XLSX profile rejects hidden sheet (4.197707ms)
+✔ XLSX profile rejects defined name (3.539092ms)
+✔ XLSX profile rejects 1904 system (3.655224ms)
+✔ XLSX profile rejects shared formula (5.526976ms)
+✔ XLSX profile rejects array formula (5.886118ms)
+✔ XLSX profile rejects boolean (6.002881ms)
+✔ XLSX profile rejects date typed (5.549389ms)
+✔ XLSX profile rejects DTD (5.993528ms)
+✔ XLSX profile rejects external rel (8.542483ms)
+✔ date-formatted numeric operand is blocked (4.993236ms)
+✔ source workbook DOM and source bytes unchanged by detach (5.930824ms)
+✔ ZIP rejects arbitrary input and trailing bytes (1.747268ms)
+✔ sheet and cell limits (175.456428ms)
+✔ formula limit (59.282784ms)
+✔ range size and formula length are bounded (0.403588ms)
+✔ elapsed time number format is rejected as operand (7.927852ms)
+✔ inherited date style is rejected as operand (8.82479ms)
+✔ large left associative AST does not recurse during evaluation (7.23709ms)
+✔ precision-as-displayed, iterative and R1C1 modes reject (16.677411ms)
+✔ unlisted allowed-path worksheet rejects (3.795903ms)
+✔ duplicate workbook containers cannot hide unsupported features (3.503469ms)
+✔ duplicate worksheet containers reject (3.954107ms)
+✔ row-inherited date style blocks operand (7.644232ms)
+✔ column-inherited date style blocks operand (7.351398ms)
+✔ foreign descendant namespace rejects (9.582002ms)
+✔ workbook relationship namespace cannot be rebound (3.937642ms)
+✔ legacy evaluation true lexical form rejects (11.907065ms)
+✔ wrong workbook MIME rejects (3.103697ms)
+✔ missing worksheet manifest rejects (3.149004ms)
+✔ optional theme must have exact content type and relationship and valid XML (7.17701ms)
+✔ valid plain DrawingML theme is preserved (22.909391ms)
+✔ mismatched style relationship rejects (3.628324ms)
+✔ recursive profile rejects nested formula markup (4.557991ms)
+✔ recursive profile rejects nested cached value markup (3.932625ms)
+✔ recursive profile rejects nested string markup (4.284626ms)
+✔ recursive profile rejects column extension (4.655185ms)
+✔ recursive profile rejects font extension (4.062687ms)
+✔ recursive profile rejects font unknown attribute (5.825659ms)
+✔ recursive profile rejects undeclared attribute prefix (8.701758ms)
+✔ recursive profile rejects unbound r prefix (3.553863ms)
+✔ recursive profile rejects plain unknown format attribute (4.467467ms)
+✔ recursive profile rejects relationship nested extension (3.316201ms)
+✔ recursive profile rejects manifest nested extension (2.990348ms)
+✔ XML depth budget applies before tree construction (4.023259ms)
+✔ XML element budget applies before tree construction (50.278678ms)
+✔ expanded repeated SUM visits are bounded before unique-edge deduplication (100.990247ms)
+✔ repeated deep lineage is bounded before large evidence serialization (18.831552ms)
+✔ ZIP central/local mismatch rejects method (2.026141ms)
+✔ ZIP central/local mismatch rejects encryption (1.51216ms)
+✔ ZIP central/local mismatch rejects unpacked size (1.417299ms)
+✔ ZIP central/local mismatch rejects CRC (1.453713ms)
+✔ dishonest declared size is capped during actual streaming inflation (1.821458ms)
+✔ strict XML/layout rejects unused invalid column style (4.439646ms)
+✔ strict XML/layout rejects empty row invalid style (4.4293ms)
+✔ strict XML/layout rejects column outside Excel bound (4.44314ms)
+✔ strict XML/layout rejects bad font cross reference (3.951493ms)
+✔ strict XML/layout rejects bad fill cross reference (4.678249ms)
+✔ strict XML/layout rejects duplicate address attribute (4.097278ms)
+✔ strict XML/layout rejects duplicate type attribute (3.99011ms)
+✔ strict XML/layout rejects literal NUL (4.126412ms)
+✔ strict XML/layout rejects numeric NUL (4.455038ms)
+✔ strict XML/layout rejects unknown number format (8.067308ms)
+✔ unrecognized processing instructions reject (9.554381ms)
+✔ valid stored and signed-descriptor ZIP packages import (10.302319ms)
+✔ theme extensions are rejected recursively (5.736246ms)
+✔ cell payload alternatives reject numeric plus inline payload (4.1123ms)
+✔ cell payload alternatives reject formula plus inline payload (3.96332ms)
+✔ cell payload alternatives reject inline string plus numeric payload (3.971883ms)
+✔ duplicate custom numFmt IDs cannot override date detection (3.782833ms)
+✔ style count mismatch rejects (3.795251ms)
+✔ relationship prefix declared locally on sheet remains valid (7.296186ms)
+✔ plain openpyxl-produced workbook imports with local namespaces and empty protection container (5.149337ms)
+✔ active workbook protection still rejects (9.617915ms)
+✔ blank row declarations have a workbook-wide budget (52.806972ms)
+✔ column declaration count has a workbook-wide budget (14.620484ms)
+ℹ tests 132
+ℹ suites 0
+ℹ pass 132
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1406.747449
+
+> sheet-detach@0.1.0 fixture
+> node scripts/export-example.mjs
+
+{"values":{"Plan!B2":8,"Plan!B3":2,"Plan!C2":46,"Plan!C3":10,"Plan!C4":56},"freezeOccurrences":3}
+
+> sheet-detach@0.1.0 test:oracle
+> python3 tools/oracle.py
+
+{"status": "passed", "evidence": "/workspace/scratch/4396daea8a85/sheet-detach-project/test-results/oracle/evidence.json", "state_count": 12, "error": null}
+{"status": "configuration_validated", "native_application_recalculation": false, "libreoffice_launched": false, "state_count": 12, "parser_self_tests": {"valid_formulas": 10, "rejected_formulas": 7}}
+{"timestamp":"2026-10-04T15:31:35.754Z","runtime":"v24.19.0","case":"999 kept formulas with one independent omitted scalar each","cells":1001,"formulas":999,"inputBytes":8714,"outputBytes":8200,"elapsedMs":101.02,"allExpectedValues":19,"note":"Single local synthetic case; not user time-saved or performance SLA evidence"}

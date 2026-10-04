@@ -1,0 +1,25 @@
+{
+  "ok": false,
+  "issues": [
+    {
+      "code": "KEPT_BACKLINK",
+      "message": "Frozen operand depends on kept sheet Plan. Retain Derived to preserve responsiveness.",
+      "path": [
+        "Plan!C2",
+        "Derived!B2",
+        "Plan!B2"
+      ]
+    }
+  ],
+  "ledger": [],
+  "preview": [],
+  "formulaCount": 1,
+  "kept": [
+    "Plan"
+  ],
+  "removed": [
+    "Constants",
+    "Derived"
+  ],
+  "profile": "sheet-detach-plain-xlsx-v1"
+}

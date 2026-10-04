@@ -1,0 +1,155 @@
+{
+  "schema": "sheet-detach-recipe-v1",
+  "profile": "sheet-detach-plain-xlsx-v1",
+  "keptSheets": [
+    "Plan"
+  ],
+  "omittedSheets": [
+    "Constants",
+    "Derived"
+  ],
+  "sourceFormulaCaches": "ignored",
+  "calculation": "IEEE-754 binary64; absolute values <= 1e100; finite values only; no Excel-native certification",
+  "consumerStatus": "Microsoft Excel unverified. See repository CI evidence for LibreOffice consumer checks.",
+  "formulaCount": 3,
+  "freezeOccurrenceCount": 3,
+  "formulas": [
+    {
+      "sheet": "Plan",
+      "cell": "C2",
+      "before": "=B2*Derived!$B$2+Constants!$B$3",
+      "after": "=B2*(6)+(-2)",
+      "value": 46
+    },
+    {
+      "sheet": "Plan",
+      "cell": "C3",
+      "before": "=B3*Constants!$B$4",
+      "after": "=B3*(5)",
+      "value": 10
+    },
+    {
+      "sheet": "Plan",
+      "cell": "C4",
+      "before": "=SUM(C2:C3)",
+      "after": "=SUM(C2:C3)",
+      "value": 56
+    }
+  ],
+  "freezes": [
+    {
+      "sheet": "Plan",
+      "cell": "C2",
+      "before": "=B2*Derived!$B$2+Constants!$B$3",
+      "reference": "Derived!$B$2",
+      "source": "Derived!B2",
+      "value": 6,
+      "path": [
+        "Plan!C2",
+        "Derived!B2"
+      ],
+      "lineage": [
+        {
+          "cell": "Derived!B2",
+          "formula": "Constants!B2*2",
+          "value": 6
+        },
+        {
+          "cell": "Constants!B2",
+          "formula": null,
+          "value": 3
+        }
+      ],
+      "leafPaths": [
+        [
+          "Derived!B2",
+          "Constants!B2"
+        ]
+      ],
+      "occurrence": 1,
+      "after": "=B2*(6)+(-2)"
+    },
+    {
+      "sheet": "Plan",
+      "cell": "C2",
+      "before": "=B2*Derived!$B$2+Constants!$B$3",
+      "reference": "Constants!$B$3",
+      "source": "Constants!B3",
+      "value": -2,
+      "path": [
+        "Plan!C2",
+        "Constants!B3"
+      ],
+      "lineage": [
+        {
+          "cell": "Constants!B3",
+          "formula": null,
+          "value": -2
+        }
+      ],
+      "leafPaths": [
+        [
+          "Constants!B3"
+        ]
+      ],
+      "occurrence": 2,
+      "after": "=B2*(6)+(-2)"
+    },
+    {
+      "sheet": "Plan",
+      "cell": "C3",
+      "before": "=B3*Constants!$B$4",
+      "reference": "Constants!$B$4",
+      "source": "Constants!B4",
+      "value": 5,
+      "path": [
+        "Plan!C3",
+        "Constants!B4"
+      ],
+      "lineage": [
+        {
+          "cell": "Constants!B4",
+          "formula": null,
+          "value": 5
+        }
+      ],
+      "leafPaths": [
+        [
+          "Constants!B4"
+        ]
+      ],
+      "occurrence": 1,
+      "after": "=B3*(5)"
+    }
+  ],
+  "guarantee": "Kept-sheet formulas remain responsive to supported numeric input edits. Omitted independent values are frozen. Structural edits, formula fill and edits to omitted sheets are outside the contract.",
+  "removedMetadata": [
+    "Source workbook document properties",
+    "Shared string table rebuilt as selected inline strings"
+  ],
+  "limits": {
+    "sheets": 20,
+    "cells": 10000,
+    "formulas": 2000,
+    "fileBytes": 8388608,
+    "unpackedBytes": 33554432,
+    "entries": 100,
+    "rangeCells": 10000,
+    "formulaCharacters": 500000,
+    "formulaLength": 8192,
+    "formulaNesting": 128,
+    "dependencyEdges": 100000,
+    "referenceVisits": 100000,
+    "lineageWork": 100000,
+    "evidenceUnits": 50000,
+    "evidenceCharacters": 8388608,
+    "styles": 1000,
+    "merges": 1000,
+    "maxAbsoluteValue": 1e+100,
+    "xmlDepth": 64,
+    "xmlElements": 100000,
+    "rowDeclarations": 10000,
+    "columnDeclarations": 1000,
+    "styleContainerEntries": 1000
+  }
+}

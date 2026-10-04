@@ -1,0 +1,12 @@
+{
+  "timestamp": "2026-10-04T15:31:35.754Z",
+  "runtime": "v24.19.0",
+  "case": "999 kept formulas with one independent omitted scalar each",
+  "cells": 1001,
+  "formulas": 999,
+  "inputBytes": 8714,
+  "outputBytes": 8200,
+  "elapsedMs": 101.02,
+  "allExpectedValues": 19,
+  "note": "Single local synthetic case; not user time-saved or performance SLA evidence"
+}

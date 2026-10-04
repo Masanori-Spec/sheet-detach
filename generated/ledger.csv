@@ -1,0 +1,4 @@
+﻿"sheet","cell","occurrence","reference","source","value","before","after","dependency_path","lineage"
+"Plan","C2","1","Derived!$B$2","Derived!B2","6","'=B2*Derived!$B$2+Constants!$B$3","'=B2*(6)+(-2)","Plan!C2 → Derived!B2","[{""cell"":""Derived!B2"",""formula"":""Constants!B2*2"",""value"":6},{""cell"":""Constants!B2"",""formula"":null,""value"":3}]"
+"Plan","C2","2","Constants!$B$3","Constants!B3","-2","'=B2*Derived!$B$2+Constants!$B$3","'=B2*(6)+(-2)","Plan!C2 → Constants!B3","[{""cell"":""Constants!B3"",""formula"":null,""value"":-2}]"
+"Plan","C3","1","Constants!$B$4","Constants!B4","5","'=B3*Constants!$B$4","'=B3*(5)","Plan!C3 → Constants!B4","[{""cell"":""Constants!B4"",""formula"":null,""value"":5}]"

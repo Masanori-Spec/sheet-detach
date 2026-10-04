@@ -1,0 +1,16 @@
+SheetDetach bounded XLSX handoff
+Kept: Plan
+Omitted: Constants, Derived
+Preserved formula cells: 3
+Frozen scalar occurrences: 3
+Source formula caches were ignored. All supported formula values were recomputed.
+Boundary ranges and any omitted-cell dependency returning to a kept sheet block export.
+Basic cell styles, row/column dimensions, merges, supported views and print layout are retained. Unsupported workbook features block import.
+Numeric contract: IEEE-754 binary64, finite values with absolute value <= 1e100. Consumer rounding may differ.
+Ordinary planning templates only. Microsoft Excel is unverified. No financial-model validation claim.
+Formula fill, structural edits and later changes on omitted sheets are outside the equivalence contract.
+Recipe and freeze ledger contain omitted source values and lineage. Review them before sharing.
+
+Plan!C2: =B2*Derived!$B$2+Constants!$B$3 → =B2*(6)+(-2) = 46
+Plan!C3: =B3*Constants!$B$4 → =B3*(5) = 10
+Plan!C4: =SUM(C2:C3) → =SUM(C2:C3) = 56

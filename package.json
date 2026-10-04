@@ -1,0 +1,31 @@
+{
+  "name": "sheet-detach",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Bounded XLSX handoffs that keep selected-sheet formulas editable",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test tests/*.test.mjs",
+    "check": "npm run build && npm test",
+    "fixture": "node scripts/export-example.mjs",
+    "test:oracle": "python3 tools/oracle.py",
+    "test:browser": "node tests/browser-test.mjs",
+    "test:native": "python3 tools/libreoffice.py",
+    "serve": "node scripts/serve.mjs",
+    "package": "python3 scripts/package.py"
+  },
+  "dependencies": {
+    "jszip": "3.10.1",
+    "xml-js": "1.6.11",
+    "pako": "1.0.11",
+    "sax": "1.6.1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.0",
+    "esbuild": "0.25.11"
+  }
+}
