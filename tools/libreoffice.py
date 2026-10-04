@@ -48,6 +48,15 @@ def conversion_command(binary: str, profile: Path, source: Path, destination: Pa
             "--convert-to", "xlsx:Calc MS Excel 2007 XML", "--outdir", str(destination), str(source)]
 
 
+def consumer_environment() -> dict:
+    # SVP is LibreOffice's headless VCL backend; gen requires an X11 display.
+    # https://docs.libreoffice.org/vcl/html/salplug_8cxx_source.html
+    environment = dict(os.environ, SAL_USE_VCLPLUGIN="svp", LANG="C.UTF-8", LC_ALL="C.UTF-8")
+    environment.pop("DISPLAY", None)
+    environment.pop("WAYLAND_DISPLAY", None)
+    return environment
+
+
 def run_consumer(binary: str, source: Path, destination: Path, scratch: Path, label: str, runs: list) -> Path:
     require(source.is_file(), f"Missing native consumer input {source}")
     destination.mkdir(parents=True, exist_ok=True)
@@ -63,7 +72,8 @@ def run_consumer(binary: str, source: Path, destination: Path, scratch: Path, la
               "recalculate_on_load": "always", "status": "running"}
     runs.append(record)
     try:
-        environment = dict(os.environ, SAL_USE_VCLPLUGIN="gen", LANG="C.UTF-8", LC_ALL="C.UTF-8")
+        environment = consumer_environment()
+        record["vcl_backend"] = environment["SAL_USE_VCLPLUGIN"]
         result = subprocess.run(command, capture_output=True, text=True, timeout=90, env=environment, check=False)
         record.update(returncode=result.returncode, stdout=result.stdout, stderr=result.stderr)
         require(result.returncode == 0, f"LibreOffice failed for {label}: {result.returncode}: {result.stderr}")
@@ -125,7 +135,9 @@ def validate_configuration() -> dict:
     require((8, 2) in STATES and (10, 3) in STATES, "Initial and changed states must be included")
     command = conversion_command("libreoffice", Path("/tmp/profile"), Path("/tmp/source.xlsx"), Path("/tmp/output"))
     require("--headless" in command and "xlsx:Calc MS Excel 2007 XML" in command, "Invalid conversion command")
-    return {"status": "configuration_validated", "native_application_recalculation": False,
+    require(consumer_environment()["SAL_USE_VCLPLUGIN"] == "svp" and "DISPLAY" not in consumer_environment(),
+            "Native harness must use the display-independent SVP backend")
+    return {"status": "configuration_validated", "headless_backend": "svp", "native_application_recalculation": False,
             "libreoffice_launched": False, "state_count": len(STATES), "parser_self_tests": parser_self_test()}
 
 

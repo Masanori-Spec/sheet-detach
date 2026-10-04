@@ -3,7 +3,8 @@
 import { chromium, expect } from '@playwright/test';
 import assert from 'node:assert/strict';
 import { createServer } from 'node:http';
-import { readFile, writeFile, mkdir, stat } from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
+import { readFile, writeFile, mkdir, stat, readdir } from 'node:fs/promises';
 import { resolve, extname, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { demoBytes, fixtureBytes } from '../src/fixture.mjs';
@@ -37,7 +38,32 @@ async function noPageOverflow(page) {
   const sizes=await page.evaluate(()=>({document:document.documentElement.scrollWidth,body:document.body.scrollWidth,viewport:window.innerWidth}));
   assert.ok(sizes.document<=sizes.viewport+1 && sizes.body<=sizes.viewport+1, `Horizontal page overflow: ${JSON.stringify(sizes)}`);
 }
-async function shot(page,name) {await page.screenshot({path:resolve(output,`${name}.png`),fullPage:true});evidence.screenshots.push(`${name}.png`);}
+async function shot(page,name) {await page.evaluate(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));await page.screenshot({path:resolve(output,`${name}.png`),fullPage:true});evidence.screenshots.push(`${name}.png`);}
+async function capturePrint(page,language) {
+  const directory=resolve(output,'print');await mkdir(directory,{recursive:true});
+  const name=`handoff-review-${language}`,pdf=resolve(directory,`${name}.pdf`);
+  await page.evaluate(()=>window.scrollTo({top:0,left:0,behavior:'instant'}));
+  await page.emulateMedia({media:'print'});
+  try {
+    await expect(page.locator('.setup-panel')).toBeHidden();
+    await expect(page.locator('#preview-section')).toBeVisible();
+    await expect(page.locator('#ledger-section')).toBeVisible();
+    await expect(page.locator('.profile-section')).toBeVisible();
+    await page.pdf({path:pdf,format:'A4',printBackground:true,preferCSSPageSize:true});
+    const bytes=(await stat(pdf)).size;assert.ok(bytes>5000,'Print PDF must contain real document content');
+    const text=execFileSync('pdftotext',['-layout',pdf,'-'],{encoding:'utf8'}),compact=text.replace(/\s+/gu,'');
+    const required=['Plan!C2','Plan!C3','Plan!C4','=B2*(6)+(-2)','=B3*(5)','=SUM(C2:C3)','Derived!B2','Constants!B2','10,000','2,000','MicrosoftExcel',language==='ja'?'外した参照の記録':'Removed-referenceledger',language==='ja'?'20シート':'20sheets'];
+    for(const expected of required)assert.ok(compact.includes(expected),`Printed ${language} PDF lost required content: ${expected}`);
+    const info=execFileSync('pdfinfo',[pdf],{encoding:'utf8'}),pages=Number(/^Pages:\s+(\d+)/m.exec(info)?.[1]);
+    assert.ok(pages>=1&&pages<=4,`Unexpected print length: ${pages}`);
+    for(let n=1;n<=pages;n++){const pageText=execFileSync('pdftotext',['-f',String(n),'-l',String(n),pdf,'-'],{encoding:'utf8'}).trim();assert.ok(pageText.length>40,`Blank or nearly empty print page ${n}`);}
+    await writeFile(resolve(directory,`${name}.txt`),text);
+    execFileSync('pdftoppm',['-r','110','-png',pdf,resolve(directory,name)]);
+    const rendered=(await readdir(directory)).filter(file=>file.startsWith(name+'-')&&file.endsWith('.png')).sort();assert.equal(rendered.length,pages);
+    evidence.prints??=[];evidence.prints.push({language,pdf:`print/${name}.pdf`,bytes,pages,requiredText:required,renderedPages:rendered.map(file=>'print/'+file),consumer:'Chromium print PDF; independent Poppler text extraction and page rendering'});
+    mark(`Actual ${language} print PDF: formulas, ledger, scope limits and rendered pages verified`);
+  } finally {await page.emulateMedia({media:'screen'});}
+}
 async function openDemo(page) {await page.locator('#load-demo').click();await expect(page.locator('#filename')).toHaveText('planning-sample.xlsx');await expect(page.locator('#review-status')).toHaveAttribute('data-state','staged');}
 async function checkReady(page) {await page.locator('#analyze').click();await expect(page.locator('#review-status')).toHaveAttribute('data-state','ready');await expect(page.locator('#download-xlsx')).toBeEnabled();await expect(page.locator('#review-title')).toBeFocused();}
 async function expectedValues(page,expected={C2:46,C3:10,C4:56}) {for(const [cell,value] of Object.entries(expected))await expect(page.locator(`tr[data-cell="Plan!${cell}"] .formula-value`)).toHaveAttribute('data-raw-value',String(value));}
@@ -76,6 +102,7 @@ try {
   await expect(page.locator('tr[data-cell="Plan!C4"] .formula-after')).toContainText('SUM(C2:C3)');
   await expect(page.locator('.validation-note')).toContainText('Microsoft Excel');
   await shot(page,'desktop-ja');
+  await capturePrint(page,'ja');
   const xlsxPath=await saveDownload(page,'#download-xlsx','handoff.xlsx');
   await saveDownload(page,'#download-ledger','ledger.csv');
   await saveDownload(page,'#download-recipe','recipe.json');
@@ -101,6 +128,7 @@ try {
   await expect(page.locator('#preview-title')).toHaveText('Formula preview');
   await expectedValues(page);
   await shot(page,'desktop-en');
+  await capturePrint(page,'en');
   await noPageOverflow(page);
   mark('English toggle preserves current reviewed results');
   await page.locator('input[data-sheet="Constants"]').check();
